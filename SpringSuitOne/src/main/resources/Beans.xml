@@ -1,23 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:c="http://www.springframework.org/schema/c"
-	xmlns:cache="http://www.springframework.org/schema/cache"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:jee="http://www.springframework.org/schema/jee"
-	xmlns:lang="http://www.springframework.org/schema/lang"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:task="http://www.springframework.org/schema/task"
-	xmlns:util="http://www.springframework.org/schema/util"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
-		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
-		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
-		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
-		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+                
+   <bean id="empRec1" class="com.mindtree.springfive.model.Employee"></bean>
+   <bean id="dept1" class="com.mindtree.springfive.model.Department"></bean>
+   
+   <bean id="empRec2" class="com.mindtree.springfive.model.Employee">
+    <property name="firstName"><value>Navneet</value></property>
+    <property name="lastName"><value>Sharma</value></property>
+    <property name="birthDate"><value>August 15, 1994</value></property>
+    <property name="age"><value>23</value></property>
+    <property name="salary"><value>50000</value></property>
+    <property name="position"><value>Fullstack Developer</value></property>
+    <property name="department"><ref bean="dept2"/></property>
+   </bean>
 
+   <bean id="dept2" class="com.mindtree.springfive.model.Department">
+    <property name="deptNo"><value>13456</value></property>
+    <property name="deptName"><value>Java FSE</value></property>
+   </bean>
 
+   <bean id="empRec3" class="com.mindtree.springfive.model.Employee">
+    <property name="firstName" value="Rose"></property>
+    <property name="lastName" value="Geller"></property>
+    <property name="birthDate" value="August 15, 1994"></property>
+    <property name="age" value="23"></property>
+    <property name="salary" value="50000"></property>
+    <property name="position" value="Fullstack Developer"></property>
+    <property name="department" ref="dept3"></property>
+   </bean>
+
+   <bean id="dept3" class="com.mindtree.springfive.model.Department">
+    <property name="deptNo" value="56748"></property>
+    <property name="deptName" value="Java FSE"></property>
+   </bean>
+   
+    <bean id="empRec4" class="com.mindtree.springfive.model.Employee">
+       <property name="firstName" value="Gabriela"/>
+       <property name="lastName" value="Silang"/>
+       <property name="birthDate" value="June 19, 1950"/>
+       <property name="age" value="67"/>
+       <property name="salary" value="897000"/>
+       <property name="position" value="writer"/>
+       <property name="department">
+           <bean class="com.mindtree.springfive.model.Department" scope="prototype">
+                <property name="deptNo" value="48574"/>
+                <property name="deptName" value="Humanities Department"/>
+           </bean>
+       </property>
+    </bean>
+
+    <bean id="empRec5" class="com.mindtree.springfive.model.Employee">
+          <constructor-arg><value>Poly</value></constructor-arg>
+          <constructor-arg><value>Mabini</value></constructor-arg>
+          <constructor-arg><value>August 10, 1948</value></constructor-arg>
+          <constructor-arg><value>67</value></constructor-arg>
+          <constructor-arg><value>45000</value></constructor-arg>
+          <constructor-arg><value>Linguist</value></constructor-arg>
+          <constructor-arg><ref bean="dept3"></ref></constructor-arg>
+    </bean>
 </beans>
