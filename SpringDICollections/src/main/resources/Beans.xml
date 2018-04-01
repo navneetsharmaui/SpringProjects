@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">    
+    
+    <bean id="objOne" class="com.mindtree.springfive.beans.Book">
+        <property name="isbn" value="20Novel" />
+        <property name="bookName" value="Final Empire"/>
+        <property name="price" value="300"/>
+        <property name="publication" value="Packt-Pub"/>
+    </bean>
+    <bean id="objTwo" class="com.mindtree.springfive.beans.Book">
+        <constructor-arg value="Java490"></constructor-arg>
+        <constructor-arg value="The Well of ascession"></constructor-arg>
+        <constructor-arg value="300"></constructor-arg>
+        <constructor-arg value="Packt-Pub"></constructor-arg>
+    </bean>
+    <bean id="objThree" class="com.mindtree.springfive.beans.Book"
+          p:isbn="200Autobiography" p:bookName="Hero of Ages" 
+          p:price="400" p:publication="Packt-Pub">
+    </bean>  
+    
+    <bean id="objFour" class="com.mindtree.springfive.beans.LibraryList">
+        <property name="bookList">
+            <list>
+                <ref bean="objOne"></ref>
+                <ref bean="objTwo"></ref>
+                <ref bean="objThree"></ref>
+                <ref bean="objThree"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="objFive" class="com.mindtree.springfive.beans.LibrarySet">
+        <property name="bookSet">
+            <set>
+                <ref bean="objOne"></ref>
+                <ref bean="objTwo"></ref>
+                <ref bean="objThree"></ref>
+                <ref bean="objThree"></ref>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="objSix" class="com.mindtree.springfive.beans.LibraryMap">
+        <property name="bookMap">
+            <map>
+                <entry key="20Novel" value-ref="objOne"></entry>
+                <entry key="200Autobiography" value-ref="objTwo"></entry>
+                <entry key="Java490" value-ref="objThree"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="objSeven" class="com.mindtree.springfive.beans.Country">
+        <property name="countryName" value="India" />
+        <property name="continent" value="Asia"/>
+        <property name="stateCapitals">
+            <props>
+                <prop key="Maharashtra">Mumbai</prop>
+                <prop key="Goa">Panji</prop>
+                <prop key="Punjab">Chandigad</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="objEight" class="com.mindtree.springfive.beans.LibraryList">
+        <property name="bookList">
+            <util:list>
+                <ref bean="objOne"></ref>
+                <ref bean="objTwo"></ref>
+                <ref bean="objThree"></ref>
+                <ref bean="objThree"></ref>
+            </util:list>
+        </property>
+    </bean>
+
+</beans>
