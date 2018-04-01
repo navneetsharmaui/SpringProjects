@@ -7,6 +7,7 @@ import java.util.Date;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 import com.mindtree.springfive.model.Department;
@@ -58,7 +59,7 @@ public class BeanConfig {
 	@Bean(name="empRec3")
 	public Employee getEmpRecord3(){
 		@SuppressWarnings("deprecation")
-		Employee empRec3 = new Employee("Jose","Rizal",new Date(50,5, 19), 101, 90000.00, "scriber", getDept3());
+		Employee empRec3 = new Employee("Jose","Rizal",new Date(50, 5, 19), 101, 90000.00, "scriber", getDept3());
 		return empRec3;
 	}
 	
@@ -68,4 +69,19 @@ public class BeanConfig {
 		return dept3;
 	}
 	
+	@SuppressWarnings("deprecation")
+	@Lazy
+	@Bean(name="empRec4")
+	public Employee getEmpRecord4() {
+		Employee empRec4 = new Employee("Diego","Silang",new Date(65, 11, 15), 55, 85000.00, "guitarist", getDept4());
+		return empRec4;
+	}
+	
+	@Lazy
+	@Bean(name="dept4")
+	public Department getDept4() {
+		Department dept4 = new Department(11223, "Music Department");
+		return dept4;
+	}
+
 }

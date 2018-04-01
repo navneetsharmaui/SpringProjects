@@ -42,6 +42,7 @@ public class Employee {
 		this.salary = salary;
 		this.position = position;
 		this.department = department;
+		System.out.println("An Employee is created.");
 	}
 	/**
 	 * @return the firstName

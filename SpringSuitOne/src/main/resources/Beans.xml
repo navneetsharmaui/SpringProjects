@@ -62,4 +62,18 @@
           <constructor-arg><value>Linguist</value></constructor-arg>
           <constructor-arg><ref bean="dept3"></ref></constructor-arg>
     </bean>
+    <bean id="empRec6" class="com.mindtree.springfive.model.Employee" lazy-init="true">
+          <constructor-arg><value>Diego</value></constructor-arg>
+          <constructor-arg><value>Silang</value></constructor-arg>
+          <constructor-arg><value>December 16, 1965</value></constructor-arg>
+          <constructor-arg><value>55</value></constructor-arg>
+          <constructor-arg><value>87000</value></constructor-arg>
+          <constructor-arg><value>Guitarist</value></constructor-arg>
+          <constructor-arg><ref bean="dept4"></ref></constructor-arg>
+    </bean>
+
+    <bean id="dept4" class="com.mindtree.springfive.model.Department" lazy-init="true">
+        <property name="deptNo" value="11223"/>
+        <property name="deptName" value="Music" />
+    </bean>
 </beans>

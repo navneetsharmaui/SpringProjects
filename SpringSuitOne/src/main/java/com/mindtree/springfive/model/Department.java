@@ -24,6 +24,7 @@ public class Department {
 	public Department(Integer deptNo, String deptName) {
 		this.deptNo = deptNo;
 		this.deptName = deptName;
+		System.out.println("A Department is created.");
 	}
 	/**
 	 * @return the deptNo

@@ -46,7 +46,17 @@ public class TestBeans {
 		System.out.println("Salary: "+ empRec5.getSalary());
 		System.out.println("Position: "+ empRec5.getPosition());
 		System.out.println("Department Name: "+ dept3.getDeptName());
-		
+
+        System.out.println("*********The empRec6 Lazy bean ***************");
+        Employee empRec6 = applicationContext.getBean("empRec6", Employee.class);
+        Department dept4 = empRec6.getDepartment();
+        System.out.println("First Name: " + empRec6.getFirstName());
+        System.out.println("Last Name: " + empRec6.getLastName());
+		System.out.println("Birthdate: "+ empRec6.getBirthDate());
+		System.out.println("Age: "+ empRec6.getAge());
+		System.out.println("Salary: "+ empRec6.getSalary());
+		System.out.println("Position: "+ empRec6.getPosition());
+		System.out.println("Department Name: "+ dept4.getDeptName());
 	}
 
 }
