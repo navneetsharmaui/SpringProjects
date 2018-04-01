@@ -7,6 +7,7 @@ import java.util.Date;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import com.mindtree.springfive.model.Department;
 import com.mindtree.springfive.model.Employee;
@@ -19,6 +20,7 @@ import com.mindtree.springfive.model.Employee;
 public class BeanConfig {
 	
 	@Bean(name="empRec1")
+	@Scope("singleton")
 	public Employee getEmpRecord1() {
 		Employee empRec1 = new Employee();
 		return empRec1;
@@ -32,6 +34,7 @@ public class BeanConfig {
 	
 	@SuppressWarnings("deprecation")
 	@Bean(name="empRec2")
+	@Scope("prototype")
 	public Employee getEmpRecord2() {
 		Employee empRec2 = new Employee();
 		empRec2.setFirstName("Navneet");

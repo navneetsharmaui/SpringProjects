@@ -5,10 +5,10 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
                 
-   <bean id="empRec1" class="com.mindtree.springfive.model.Employee"></bean>
+   <bean id="empRec1" class="com.mindtree.springfive.model.Employee" scope="singleton"></bean>
    <bean id="dept1" class="com.mindtree.springfive.model.Department"></bean>
    
-   <bean id="empRec2" class="com.mindtree.springfive.model.Employee">
+   <bean id="empRec2" class="com.mindtree.springfive.model.Employee" scope="prototype">
     <property name="firstName"><value>Navneet</value></property>
     <property name="lastName"><value>Sharma</value></property>
     <property name="birthDate"><value>August 15, 1994</value></property>

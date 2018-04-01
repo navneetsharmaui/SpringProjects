@@ -36,7 +36,7 @@ public class TestBeans {
 	    System.out.println("Last Name: " + empRec2.getLastName());
 	    System.out.println("Birthdate: " + empRec2.getBirthDate());
 	    System.out.println("Salary: " + empRec2.getSalary());
-	    System.out.println("Dept. Name: " + dept2.getDeptName());
+	    System.out.println("Department Name: " + dept2.getDeptName());
 	   
 	    System.out.println("*********The empRec3 bean ***************");
 	    Employee empRec3 = (Employee) applicationContext.getBean("empRec3");
@@ -45,7 +45,9 @@ public class TestBeans {
 	    System.out.println("Last Name: " + empRec3.getLastName());
 	    System.out.println("Birthdate: " + empRec3.getBirthDate());
 	    System.out.println("Salary: " + empRec3.getSalary());
-	    System.out.println("Dept. Name: " + dept3.getDeptName());	
+	    System.out.println("Department Name: " + dept3.getDeptName());	
+	    
+	    applicationContext.registerShutdownHook();
 	}
 
 }
