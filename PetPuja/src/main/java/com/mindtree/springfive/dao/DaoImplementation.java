@@ -50,7 +50,7 @@ public class DaoImplementation {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			OrderDetails orderDetails = session.get(OrderDetails.class, oid-1000);
+			OrderDetails orderDetails = session.get(OrderDetails.class, oid);
 			session.delete(orderDetails);
 			transaction.commit();
 			session.close();
@@ -79,7 +79,7 @@ public class DaoImplementation {
 	    int loid = listOne.get(listOne.size()-1).getOid();
 		session.getTransaction().commit();
 		session.close();
-		return loid+1000;
+		return loid;
 	}
 
 	@Transactional
