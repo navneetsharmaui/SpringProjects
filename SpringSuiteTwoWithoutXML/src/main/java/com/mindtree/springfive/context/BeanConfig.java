@@ -49,6 +49,7 @@ public class BeanConfig {
 	}
 	
 	@Bean(name="dept2")
+	@Scope("prototype")
 	public Department getDept2() {
 		Department dept2 = new Department();
 		dept2.setDeptNo(13456);
@@ -83,5 +84,38 @@ public class BeanConfig {
 		Department dept4 = new Department(11223, "Music Department");
 		return dept4;
 	}
-
+	
+	@SuppressWarnings("deprecation")
+	@Bean(name="empRec5")
+	public Employee getEmpRecord5() {
+		Employee empRec5 = new Employee();
+		
+		empRec5.setFirstName("Gabriela");
+		empRec5.setLastName("Silang");
+		empRec5.setAge(67);
+		empRec5.setBirthDate(new Date(50, 5, 19));
+		empRec5.setPosition("Writer");
+		empRec5.setSalary(89700.00);
+		empRec5.setDepartment(new Department() {
+			String deptName = "Communication Department";
+			Integer deptNo = 232456;
+			@Override
+			public String getDeptName() {
+				return deptName;
+			}
+			@Override
+			public Integer getDeptNo() {
+				return deptNo;
+			}
+			@Override
+			public void setDeptName(String deptName) {
+				this.deptName=deptName;
+			}
+			@Override
+			public void setDeptNo(Integer deptNo) {
+				this.deptNo=deptNo;
+			}
+		});
+		return empRec5;
+	}
 }

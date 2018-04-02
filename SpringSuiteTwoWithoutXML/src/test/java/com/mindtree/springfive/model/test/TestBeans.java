@@ -56,6 +56,14 @@ public class TestBeans {
 	    System.out.println("Salary: " + empRec4.getSalary());
 	    System.out.println("Department Name: " + dept4.getDeptName());	
 	    
+	    System.out.println("*********The empRec5 bean ***************");
+	    Employee empRec5 = (Employee) applicationContext.getBean("empRec5");
+	    System.out.println("First Name: " + empRec5.getFirstName());
+	    System.out.println("Last Name: " + empRec5.getLastName());
+	    System.out.println("Birthdate: " + empRec5.getBirthDate());
+	    System.out.println("Salary: " + empRec5.getSalary());
+	    System.out.println("Department Name: " + empRec5.getDepartment().getDeptName());
+
 	    applicationContext.registerShutdownHook();
 	}
 
