@@ -76,4 +76,75 @@
         <property name="deptNo" value="11223"/>
         <property name="deptName" value="Music" />
     </bean>
+    
+    <bean id="listEmployees" class="com.mindtree.springfive.model.ListEmployees">
+        <property name="listEmps">
+            <list>
+                <ref bean="empRec2"/>
+                <ref bean="empRec3"/>
+                <ref bean="empRec4"/>
+            </list>
+        </property>
+        <property name="listEmpNames">
+            <list>
+                <value>Juan</value>
+                <value>Jose</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="setDepartments" class="com.mindtree.springfive.model.SetDepartments">
+       <property name="setDept">
+          <set>
+               <ref bean="dept2"/>
+               <ref bean="dept3"/>
+               <ref bean="dept4"/>
+          </set>
+       </property>
+       <property name="deptNames">
+          <set>
+               <value>Music</value>
+               <value>Arts</value>
+          </set>
+       </property>
+    </bean>
+    
+    <bean id="mapEmpTasks" class="com.mindtree.springfive.model.MapEmpTasks">
+       <property name="mapEmpTask">
+           <map>
+               <entry key="expository">
+                    <ref bean="empRec2"/>
+               </entry>
+               <entry key="feature" value-ref="empRec3"/>
+                  
+           </map>
+       </property>
+       <property name="mapEmpMgr">
+           <map>
+               <entry key="expository">
+                   <value>Joan Arkos</value>
+               </entry>
+               <entry key="feature" value="Billy Jean"/>
+           </map>
+       </property>
+    </bean>
+    
+    
+    <bean id="auditionInfo" class="com.mindtree.springfive.model.PropertiesAudition">
+        <property name="auditionAddress">
+             <value>
+                  country=Philippines
+                  city=Makati
+                  building=Rufino Tower 2
+                  zipcode=1233
+                  
+             </value>
+        </property>
+        <property name="auditionRequirement">
+             <props>
+                 <prop key="document">curriculum vitae</prop>
+                 <prop key="picture">2x2 recent picture</prop>
+                 <prop key="time">8:00 AM</prop>
+             </props>
+        </property>
+     </bean>
 </beans>

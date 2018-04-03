@@ -3,7 +3,14 @@
  */
 package com.mindtree.springfive.context;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +19,10 @@ import org.springframework.context.annotation.Scope;
 
 import com.mindtree.springfive.model.Department;
 import com.mindtree.springfive.model.Employee;
+import com.mindtree.springfive.model.ListEmployees;
+import com.mindtree.springfive.model.MapEmpTasks;
+import com.mindtree.springfive.model.PropertiesAudition;
+import com.mindtree.springfive.model.SetDepartments;
 
 /**
  * @author M1044357
@@ -85,6 +96,7 @@ public class BeanConfig {
 		return dept4;
 	}
 	
+	@Lazy
 	@SuppressWarnings("deprecation")
 	@Bean(name="empRec5")
 	public Employee getEmpRecord5() {
@@ -117,5 +129,79 @@ public class BeanConfig {
 			}
 		});
 		return empRec5;
+	}
+	
+	@Bean
+	public ListEmployees listEmployees() {
+		ListEmployees listEmps = new ListEmployees();
+		List<Employee> empRecs = new ArrayList<>();
+		empRecs.add(getEmpRecord2());
+		empRecs.add(getEmpRecord3());
+		empRecs.add(getEmpRecord4());
+		empRecs.add(getEmpRecord5());
+		listEmps.setListEmps(empRecs);
+		
+		List<String> empNames = new ArrayList<>();
+		empNames.add("Juan");
+		empNames.add("Jose");
+		
+		listEmps.setListEmpNames(empNames);
+		
+		return listEmps;
+	}
+	
+	@Bean
+	public SetDepartments setDepartments() {
+		SetDepartments setDepts = new SetDepartments();
+		
+		Set<Department> deptRecs = new HashSet<>();
+		deptRecs.add(getDept2());
+		deptRecs.add(getDept3());
+		deptRecs.add(getDept4());
+		setDepts.setSetDept(deptRecs);
+		
+		Set<String> deptNames = new HashSet<>();
+		deptNames.add("Music");
+		deptNames.add("Arts");
+		setDepts.setDeptNames(deptNames);
+		
+		return setDepts;
+	}
+	
+	@Bean
+	public MapEmpTasks mapEmpTasks() {
+		MapEmpTasks mapTasks = new MapEmpTasks();
+		
+		Map<String, Employee> empTasks = new HashMap<>();
+		empTasks.put("expository", getEmpRecord2());
+		empTasks.put("feature", getEmpRecord3());
+		mapTasks.setMapEmpTask(empTasks);
+		
+		Map<String, String> mgrTasks = new HashMap<>();
+		mgrTasks.put("expository", "Joan Arkos");
+		mgrTasks.put("feature", "Billy Jean");
+		mapTasks.setMapEmpMgr(mgrTasks);
+		
+		return mapTasks;
+	}
+
+	@Bean
+	public PropertiesAudition auditionInfo(){
+		PropertiesAudition auditionInfo = new PropertiesAudition();
+		
+		Properties addressProps = new Properties();
+		addressProps.setProperty("country", "Philippines");
+		addressProps.setProperty("city", "Makati");
+		addressProps.setProperty("building", "Rufino Tower 2");
+		addressProps.setProperty("zipcode", "1223");
+		auditionInfo.setAuditionAddress(addressProps);
+		
+		Properties reqtProps = new Properties();
+		reqtProps.setProperty("document", "curriculum vitae");
+		reqtProps.setProperty("picture", "2x2 recent picture");
+		reqtProps.setProperty("time", "8:00 AM");
+		auditionInfo.setAuditionRequirement(reqtProps);
+		
+		return auditionInfo;
 	}
 }
