@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Intro Page</title>
+<title>${ title }</title>
 </head>
 <body>
-   ResourceBundleViewResolver here.
+   First Name: ${firstName}
 </body>
 </html>
