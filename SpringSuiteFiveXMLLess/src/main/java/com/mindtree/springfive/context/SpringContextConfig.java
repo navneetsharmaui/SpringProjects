@@ -143,6 +143,7 @@ public class SpringContextConfig {
 		ListEmployees listEmps = new ListEmployees();
 		
 		List<Employee> empRecs = new ArrayList<>();
+		empRecs.add(getEmpRecord1());
 		empRecs.add(getEmpRecord2());
 		empRecs.add(getEmpRecord3());
 		empRecs.add(getEmpRecord5());

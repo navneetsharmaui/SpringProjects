@@ -22,11 +22,12 @@ import com.mindtree.springfive.dispatcher.SpringDispatcherConfig;
 public class SpringWebInitializer implements WebApplicationInitializer {
 
 	private void addDispatcherContext (ServletContext container) {
+		// Create the Dispatcher servlet's ROOT context
 		AnnotationConfigWebApplicationContext dispatcherContext = new AnnotationConfigWebApplicationContext();
 		
 		dispatcherContext.register(SpringDispatcherConfig.class);
 		
-		//Declare <Servlet> and <Servlet-mapping> for the DispatcherServlet
+		// Declare <Servlet> and <Servlet-mapping> for the DispatcherServlet
 		ServletRegistration.Dynamic dispatcher = container.addServlet("dispatcher-servlet", new DispatcherServlet(dispatcherContext));
 		dispatcher.addMapping("/");
 		dispatcher.setLoadOnStartup(1);
